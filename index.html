@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARAL · Control Center</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brandmark">A</div><div><b>ARAL</b><small>CONTROL CENTER</small></div></div>
+    <div class="navlabel">WORKSPACE</div>
+    <a class="nav active" href="#overview">▦ <span>Overview</span></a>
+    <a class="nav" href="#devices">▣ <span>Device sessions</span></a>
+    <a class="nav" href="#tools">⌁ <span>Browser diagnostics</span></a>
+    <div class="sidebottom"><span class="dot"></span> Local server <small>v1.0.0</small></div>
+  </aside>
+  <main>
+    <header><div><div class="eyebrow">SECURE DEVICE LAB</div><h1>Control Center</h1></div><div class="header-right"><span class="live"><i></i> SYSTEM ONLINE</span><div class="avatar">M</div></div></header>
+    <section class="hero">
+      <div><div class="eyebrow pale">CONSENT-BASED TEST ENVIRONMENT</div><h2>Monitor authorized<br>browser sessions.</h2>
+      <p>Create a temporary pairing link. The person opening it must review and accept the session before any device information is shared.</p>
+      <button id="generate" class="primary">＋ Generate pairing link</button></div>
+      <div class="hero-art"><div class="orb"></div><div class="phone"><div class="phone-top"></div><div class="phone-screen"><div class="screen-dot"></div><b>ARAL</b><small>Secure pairing</small><div class="screen-line"></div><div class="screen-line short"></div></div></div><div class="orbit orbit1"></div><div class="orbit orbit2"></div></div>
+    </section>
+    <section id="linkPanel" class="linkpanel hidden">
+      <div><b>New pairing link</b><p>Share this link with the device owner. It expires in 30 minutes.</p><code id="linkText"></code></div>
+      <button id="copyLink" class="secondary">Copy link</button>
+    </section>
+    <section class="stats">
+      <div class="stat"><span>ACTIVE SESSIONS</span><b id="activeCount">0</b><small>Currently connected</small></div>
+      <div class="stat"><span>WAITING TO PAIR</span><b id="waitingCount">0</b><small>Links awaiting consent</small></div>
+      <div class="stat"><span>ALL SESSIONS</span><b id="totalCount">0</b><small>Current session records</small></div>
+    </section>
+    <section id="devices" class="panel">
+      <div class="panelhead"><div><div class="eyebrow">LIVE INVENTORY</div><h3>Device sessions</h3></div><button id="refresh" class="secondary">↻ Refresh</button></div>
+      <div class="tablewrap"><table><thead><tr><th>SESSION</th><th>DEVICE / BROWSER</th><th>STATUS</th><th>LAST SEEN</th><th></th></tr></thead><tbody id="sessionRows"><tr><td colspan="5" class="empty">No sessions yet. Generate a pairing link to begin.</td></tr></tbody></table></div>
+    </section>
+    <section id="tools" class="panel tools">
+      <div class="panelhead"><div><div class="eyebrow">LOCAL TEST TOOLS</div><h3>Browser diagnostics</h3></div><span class="tag">This browser only</span></div>
+      <div class="toolgrid">
+        <div class="toolcard"><div class="toolicon">◉</div><b>Camera permission test</b><p>Preview your own camera after the browser asks for permission. Nothing is uploaded.</p><button id="cameraTest" class="secondary">Test camera</button><video id="cameraPreview" autoplay playsinline muted class="preview hidden"></video></div>
+        <div class="toolcard"><div class="toolicon">♫</div><b>Microphone permission test</b><p>Check whether your own microphone is available. Audio is not recorded or transmitted.</p><button id="micTest" class="secondary">Test microphone</button><div id="micResult" class="result"></div></div>
+        <div class="toolcard"><div class="toolicon">⌁</div><b>Network information</b><p>Browser-reported connection hints only; not system-wide mobile traffic.</p><div id="networkInfo" class="result">Checking browser connection…</div></div>
+      </div>
+    </section>
+    <footer>ARAL LAB · Use only with informed consent · Pairing links expire automatically</footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div><script src="/app.js"></script>
+</body></html>
